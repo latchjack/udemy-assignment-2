@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import Validation from './Validation';
+import Char from './Char'
 
 class App extends Component {
   state = {
-    charCount: 1
+    charCount: ''
   }
 
   countHandler = (event) => {
-    this.setState({ charCount: event.target.value })
-
+    this.setState({ charCount: event.target.value });
   }
 
   render() {
+    const charList = this.state.charCount.split('').map((letter, index) => {
+      return <Char letter={letter} key={index} />
+    });
+
     return (
       <div className="App">
         <input
@@ -22,6 +26,7 @@ class App extends Component {
         />
         <p>character count: {this.state.charCount}</p>
         <Validation length={this.state.charCount.length} />
+        {charList}
       </div>
     );
   }

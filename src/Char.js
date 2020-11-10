@@ -1,19 +1,18 @@
 import React from 'react';
-import { render } from 'react-dom';
 
-const CharComponent = () => {
+const CharComponent = (props) => {
   const style = {
     display: 'inline-block',
     padding: '16px',
-    textAlign: 'center',
     margin: '16px',
+    textAlign: 'center',
     border: '1px solid black'
-  }
+  };
 
   return (
-    <ul style={style}>
-      <li>list</li>
-    </ul>
+    <div style={style}>
+      {props.letter}
+    </div>
   )
 };
 
